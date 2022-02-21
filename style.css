@@ -1,0 +1,33 @@
+.calculator{
+    display:flex;
+    background-color:grey;
+    width:80vmin;
+    height:80vmin;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.screen{
+    background-color:darkcyan;
+
+}
+
+.buttons{ 
+    display:flex;
+    width:80%;
+    height: 80%;
+    justify-content: space-around;
+}
+
+.buttons-columns{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.button{
+    background-color:white;
+    padding:20px;
+    border-radius: 5px;
+}
