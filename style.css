@@ -10,10 +10,12 @@
 
 .screen{
     background-color:darkcyan;
-
+    width:80%;
+    height:10%;
 }
 
 .buttons{ 
+    padding:5vmin 0 0 0;
     display:flex;
     width:80%;
     height: 80%;
@@ -28,6 +30,6 @@
 
 .button{
     background-color:white;
-    padding:20px;
+    padding:3vmin 5vmin;
     border-radius: 5px;
 }
