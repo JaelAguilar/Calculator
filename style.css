@@ -20,15 +20,15 @@
     width:80%;
     height: 80%;
     justify-content: space-around;
+    flex-direction: column;
 }
 
 .buttons-columns{
     display:flex;
-    flex-direction: column;
     justify-content: space-around;
 }
 
-.button{
+button{
     background-color:white;
     padding:3vmin 5vmin;
     border-radius: 5px;
