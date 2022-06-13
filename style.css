@@ -28,7 +28,6 @@ body{
     padding:3vmin 0 0 0;
     display:flex;
     flex-direction: column;
-    align-items: space-around;
 }
 
 .buttons-columns{
@@ -47,4 +46,12 @@ button{
     color:white;
     font-size:4vmin;
     border:none;
+}
+
+.selected{
+    background-color:#6D63FE;
+}
+
+button:active{
+    background-color:#172537;
 }

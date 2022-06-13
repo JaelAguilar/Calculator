@@ -35,6 +35,7 @@ function operation(button) {
     }
     globalSign = button.id
     console.log(button)
+    styleSelectedButton(button)
 }
 
 /**
@@ -101,4 +102,15 @@ function clearMemory() {
     currentValue=""
     previousValue = ""
     display.innerText="0"
+}
+
+function styleSelectedButton(selected){
+    operationButtons.forEach(button => {
+        if (button.id == selected.id) {
+            button.classList.add("selected")
+        }
+        else {
+            button.classList.remove("selected")
+        }
+    })
 }
