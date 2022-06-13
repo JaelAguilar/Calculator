@@ -29,13 +29,15 @@ function operation(button) {
         previousValue = result
         currentValue=""
     }
-    else {
+    else if(currentValue!==""){
         previousValue = currentValue
         currentValue=""
     }
     globalSign = button.id
-    console.log(button)
     styleSelectedButton(button)
+    console.log("previous: ", previousValue)
+    console.log("sign: ",globalSign)
+    console.log("current: ", currentValue)
 }
 
 /**
@@ -46,28 +48,44 @@ function operation(button) {
 function showResult(isFinal){
     let result
     //If the value exists, it converts it to float, else it's just 0
-    previousValue = parseFloat(previousValue===""?0:previousValue)
-    currentValue=parseFloat(currentValue===""?0:currentValue)
-    switch (globalSign) {
-        case "sum":
-            result=previousValue+currentValue
+    previousValue = parseFloat(previousValue === "" ? 0 : previousValue)
+    console.log("previous: ", previousValue)
+    console.log("sign: ",globalSign)
+    console.log("current: ", currentValue)
+    if (currentValue !== "") {
+        currentValue = parseFloat(currentValue)
+        switch (globalSign) {
+            case "sum":
+                result=previousValue+currentValue
+                break;
+            case "sub":
+                result=previousValue-currentValue
+                break;
+            case "mul":
+                result=previousValue*currentValue
+                break;
+            case "div":
+                result=previousValue/currentValue
+                break;
+            default:
+                result=currentValue
             break;
-        case "sub":
-            result=previousValue-currentValue
-            break;
-        case "mul":
-            result=previousValue*currentValue
-            break;
-        case "div":
-            result=previousValue/currentValue
-            break;
-        default:
-            break;
+        }
+    }
+    //If currentValue is empty, we are already sure that previousValue is 0 or a value so we show that
+    else {
+        result = previousValue
     }
     if (isFinal) {
-        clearMemory()
+        previousValue = result
+        currentValue=""
+        styleSelectedButton()
     }
-    display.innerText = result
+    if (result == null) {
+        console.error("Something went wrong while calculating. Please add an issue in https://github.com/JaelAguilar/Calculator/issues")
+    }
+    //Solution to round nicely with as few errors as possible. https://stackoverflow.com/a/41716722
+    display.innerText = Math.round( result * 100000 + Number.EPSILON ) / 100000
     return result
 }
 
@@ -101,16 +119,19 @@ function clearCurrent() {
 function clearMemory() {
     currentValue=""
     previousValue = ""
-    display.innerText="0"
+    globalSign=undefined
+    display.innerText = "0"
+    styleSelectedButton()
 }
 
 /**
  * Add class "selected" only to the especified button so the user can remember which operation is currently being used.
  * @param {HTMLElement} selected 
  */
-function styleSelectedButton(selected){
+function styleSelectedButton(selected) {
     operationButtons.forEach(button => {
-        if (button.id == selected.id) {
+        //Lazy evaluation, checks first if selected is true to avoid bugs if selected doesn't exist
+        if (selected && button.id == selected.id) {
             button.classList.add("selected")
         }
         else {
