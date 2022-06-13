@@ -67,3 +67,8 @@ function changeSign() {
     currentValue *= -1
     display.innerText=currentValue
 }
+
+function percentage() {
+    currentValue /= 100
+    display.innerText=currentValue
+}
