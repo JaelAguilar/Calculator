@@ -68,7 +68,27 @@ function changeSign() {
     display.innerText=currentValue
 }
 
+/**
+ * Divides currentValue by 100 to make a percentage
+ */
 function percentage() {
     currentValue /= 100
     display.innerText=currentValue
+}
+
+/**
+ * Erases the current value
+ */
+function clearCurrent() {
+    currentValue = ""
+    display.innerText="\u00A0"
+}
+
+/**
+ * Clears al values in memory
+ */
+function clearMemory() {
+    currentValue=""
+    previousValue = ""
+    display.innerText="\u00A0"
 }
