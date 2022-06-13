@@ -60,6 +60,9 @@ function showResult(){
     return result
 }
 
+/**
+ * Changes sign of currentValue
+ */
 function changeSign() {
     currentValue *= -1
     display.innerText=currentValue
