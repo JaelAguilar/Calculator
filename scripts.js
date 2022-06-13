@@ -1,10 +1,14 @@
 let numbers = [...document.getElementsByClassName("number")]
+let operationButtons=[...document.getElementsByClassName("operation")]
 let display = document.getElementById("screen")
 let previousValue="",currentValue="",globalSign
 
 numbers.forEach(number => {
     number.addEventListener("click", () => insertValue(number.textContent))
 });
+operationButtons.forEach(operationButton => {
+    operationButton.addEventListener("click",()=>operation(operationButton.id))
+})
 
 /**
  * Function to insert values, changes the currentValue and shows it on the screen.
@@ -33,30 +37,34 @@ function operation(newSign) {
 }
 
 /**
- * Makes the operation and shows it on the screen
+ * Makes the operation and shows it on the screen. If isFinal is true, it means that the '=' button is pressed so memory should be cleared
+ * @param {bool} isFinal 
  * @returns result of operation
  */
-function showResult(){
+function showResult(isFinal){
     let result
     previousValue = parseFloat(previousValue)
     currentValue=parseFloat(currentValue)
     switch (globalSign) {
-        case "+":
+        case "sum":
             result=previousValue+currentValue
             break;
-        case "-":
+        case "sub":
             result=previousValue-currentValue
             break;
-        case "*":
+        case "mul":
             result=previousValue*currentValue
             break;
-        case "/":
+        case "div":
             result=previousValue/currentValue
             break;
         default:
             break;
     }
-    display.innerText=result
+    if (isFinal) {
+        clearMemory()
+    }
+    display.innerText = result
     return result
 }
 
