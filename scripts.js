@@ -59,3 +59,8 @@ function showResult(){
     display.innerText=result
     return result
 }
+
+function changeSign() {
+    currentValue *= -1
+    display.innerText=currentValue
+}
