@@ -104,6 +104,10 @@ function clearMemory() {
     display.innerText="0"
 }
 
+/**
+ * Add class "selected" only to the especified button so the user can remember which operation is currently being used.
+ * @param {HTMLElement} selected 
+ */
 function styleSelectedButton(selected){
     operationButtons.forEach(button => {
         if (button.id == selected.id) {
