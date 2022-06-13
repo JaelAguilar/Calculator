@@ -12,27 +12,33 @@
         <div id="screen"></div>
             <div class="buttons">
                 <div class="buttons-columns">
+                    <button>C</button>
+                    <button>AC</button>
+                    <button>%</button>
+                    <button id="division" onclick="operation('/')">÷</button>
+                </div>
+                <div class="buttons-columns">
                     <button class="number">7</button>
                     <button class="number">8</button>
                     <button class="number">9</button>
-                    <button id="division" onclick="operation('/')">÷</button>
+                    <button id="multiplication" onclick="operation('*')">x</button>
                 </div>
                 <div class="buttons-columns">
                     <button class="number">4</button>
                     <button class="number">5</button>
                     <button class="number">6</button>
-                    <button id="multiplication" onclick="operation('*')">x</button>
+                    <button id="substraction" onclick="operation('-')">-</button>
                 </div>
                 <div class="buttons-columns">
                     <button class="number">1</button>
                     <button class="number">2</button>
                     <button class="number">3</button>
-                    <button id="substraction" onclick="operation('-')">-</button>
+                    <button id="sum" onclick="operation('+')">+</button>
                 </div>
                 <div class="buttons-columns">
                     <button class="number">0</button>
                     <button class="number">.</button>
-                    <button id="sum" onclick="operation('+')">+</button>
+                    <button>+/-</button>
                     <button id="result" onclick="showResult()">=</button>
                 </div>
             </div>
