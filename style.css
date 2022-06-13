@@ -17,10 +17,10 @@ body{
 }
 
 #screen{
-    width:60vmin;
+    width:45.5vmin;
     text-align:right;
     color:white;
-    font-size: 7vw;
+    font-size: 8vmin;
     padding-right:5%;
 }
 
@@ -39,12 +39,12 @@ body{
 button{
     background-color:white;
     border-radius: 5px;
-    margin:.5vw .5vw;
+    margin:.5vmin .5vmin;
     flex:1 1 0px;
     width:11vmin;
     height:11vmin;
     background-color: #324156;
     color:white;
-    font-size:3vw;
+    font-size:4vmin;
     border:none;
 }
