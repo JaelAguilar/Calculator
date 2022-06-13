@@ -7,7 +7,7 @@ numbers.forEach(number => {
     number.addEventListener("click", () => insertValue(number.textContent))
 });
 operationButtons.forEach(operationButton => {
-    operationButton.addEventListener("click",()=>operation(operationButton.id))
+    operationButton.addEventListener("click",()=>operation(operationButton))
 })
 
 /**
@@ -23,7 +23,7 @@ function insertValue(digit) {
  * Changes the type of operation used depneding on the button pressed. If two values were already inserted, it shows the result, else it updates the previous and current value
  * @param {String} newSign 
  */
-function operation(newSign) {
+function operation(button) {
     if (previousValue !== "") {
         result=showResult()
         previousValue = result
@@ -33,7 +33,8 @@ function operation(newSign) {
         previousValue = currentValue
         currentValue=""
     }
-    globalSign=newSign
+    globalSign = button.id
+    console.log(button)
 }
 
 /**
@@ -43,8 +44,9 @@ function operation(newSign) {
  */
 function showResult(isFinal){
     let result
-    previousValue = parseFloat(previousValue)
-    currentValue=parseFloat(currentValue)
+    //If the value exists, it converts it to float, else it's just 0
+    previousValue = parseFloat(previousValue===""?0:previousValue)
+    currentValue=parseFloat(currentValue===""?0:currentValue)
     switch (globalSign) {
         case "sum":
             result=previousValue+currentValue
@@ -89,7 +91,7 @@ function percentage() {
  */
 function clearCurrent() {
     currentValue = ""
-    display.innerText="\u00A0"
+    display.innerText="0"
 }
 
 /**
@@ -98,5 +100,5 @@ function clearCurrent() {
 function clearMemory() {
     currentValue=""
     previousValue = ""
-    display.innerText="\u00A0"
+    display.innerText="0"
 }
