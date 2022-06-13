@@ -38,8 +38,8 @@ function operation(newSign) {
  */
 function showResult(){
     let result
-    previousValue = parseInt(previousValue)
-    currentValue=parseInt(currentValue)
+    previousValue = parseFloat(previousValue)
+    currentValue=parseFloat(currentValue)
     switch (globalSign) {
         case "+":
             result=previousValue+currentValue
