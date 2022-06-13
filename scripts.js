@@ -7,9 +7,8 @@ numbers.forEach(number => {
 });
 
 function insertValue(digit) {
-    console.log("PreviousValue: "+previousValue)
     currentValue += digit
-    console.log("Current Value: "+currentValue)
+    display.innerText=currentValue
 }
 
 function operation(sign2) {
